@@ -1,0 +1,28 @@
+{!! $open !!}
+/**
+ * Part of {{ $config['author.name'] }}'s PHP packages.
+ *
+ * {{ $config['license'] }} and copyright information bundled with this package
+ * in the LICENSE file or visit {{ $config['license_link'] }}
+ */
+namespace {{ $namespace }}\Providers;
+
+use Laradic\Console\AggregateConsoleProvider;
+
+/**
+ * This is the ConsoleServiceProvider class.
+ *
+ * @package        {{ $namespace }}
+ * @version        1.0.0
+ * @author         {{ $config['author.name'] }}
+ * @license        {{ $config['license'] }}
+ * @copyright      {{ date('Y') }}, {{ $config['author.name'] }}
+ * @link           {{ $config['author.homepage'] }}
+ */
+class ConsoleServiceProvider extends AggregateConsoleProvider
+{
+    protected $namespace = '{{ $namespace }}\Console';
+    protected $commands = [
+        '{{ ucfirst($package) }}List' => '{{ $vendor }}.{{ $package }}.commands.list'
+    ];
+}

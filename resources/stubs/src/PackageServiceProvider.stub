@@ -1,0 +1,44 @@
+{!! $open !!}
+/**
+ * Part of  {{ $config['author.name'] }}'s PHP packages.
+ *
+ * {{ $config['license'] }} and copyright information bundled with this package
+ * in the LICENSE file or visit {{ $config['license_link'] }}
+ */
+namespace {{ $namespace }};
+
+use Illuminate\Foundation\Application;
+use Laradic\Config\Traits\ConfigProviderTrait;
+use Laradic\Support\ServiceProvider;
+
+/**
+ * {@inheritdoc}
+ */
+class {{ ucfirst($package) }}ServiceProvider extends ServiceProvider
+{
+    use ConfigProviderTrait;
+
+    protected $providers = [
+        '{{ $namespace }}\Providers\ConsoleServiceProvider'
+    ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function boot()
+    {
+        /** @var \Illuminate\Foundation\Application $app */
+        $app = parent::boot();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function register()
+    {
+        /** @var \Illuminate\Foundation\Application $app */
+        $app = parent::register();
+        $this->addConfigComponent('{{ $vendor }}/{{ $package }}', '{{ $vendor }}/{{ $package }}', __DIR__ . '/../resources/config');
+
+    }
+}

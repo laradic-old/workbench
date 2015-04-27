@@ -1,0 +1,35 @@
+{!! $open !!}
+/**
+ * Part of {{ $config['author.name'] }}'s PHP packages.
+ *
+ * {{ $config['license'] }} and copyright information bundled with this package
+ * in the LICENSE file or visit {{ $config['license_link'] }}
+ */
+namespace {{ $namespace }}\Console;
+
+use Laradic\Console\Command;
+
+/**
+ * This is the {{ ucfirst($package) }}ListCommand class.
+ *
+ * @package        {{ $namespace }}
+ * @version        1.0.0
+ * @author         {{ $config['author.name'] }}
+ * @license        {{ $config['license'] }}
+ * @copyright      {{ date('Y') }}, {{ $config['author.name'] }}
+ * @link           {{ $config['author.homepage'] }}
+ */
+class {{ ucfirst($package) }}ListCommand extends Command
+{
+
+    protected $name = '{{ $package }}:list';
+
+    protected $description = 'Command description.';
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fire()
+    {
+    }
+}
