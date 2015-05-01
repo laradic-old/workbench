@@ -45,15 +45,20 @@ class WorkbenchCommitCommand extends BaseCommand
             return $this->error("Could not update $slug. The directory does not exists.");
         }
 
+        $message = $this->ask('message');
+
+
         $cwd = getcwd();
         chdir($this->workbench->getPackageDir($slug));
 
-        $message = $this->ask('message');
+        # get branch
+        exec('git symbolic-ref -q HEAD', $ref);
+        $branch = last(explode('/', head($ref)));
 
         $this->workbench->useComposerDistFile($slug);
         passthru('git add -A');
         passthru('git commit -m "' . $message . '"');
-        passthru('git push -u ' . $this->option('remote') . ' ' . $this->option('branch'));
+        passthru('git push -u ' . $this->option('remote') . ' ' . $branch);
 
         chdir($cwd);
         $this->info('All done sire!');
@@ -69,8 +74,7 @@ class WorkbenchCommitCommand extends BaseCommand
     public function getOptions()
     {
         return [
-            ['remote', 'r', InputOption::VALUE_OPTIONAL, 'The remote to push to', 'origin'],
-            ['branch', 'b', InputOption::VALUE_OPTIONAL, 'The branch to push to', 'master']
+            ['remote', 'r', InputOption::VALUE_OPTIONAL, 'The remote to push to', 'origin']
         ];
     }
 }

@@ -46,7 +46,7 @@ class WorkbenchUpdateCommand extends BaseCommand
 
         $this->comment('Using the composer.dev.json file to update');
         $this->workbench->useComposerDevFile($slug);
-        $this->workbench->callComposer($slug, 'update');
+        $this->workbench->callComposer($slug, 'update --no-dev');
         $this->workbench->useComposerDistFile($slug);
 
         $this->info('All done sire!');

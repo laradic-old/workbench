@@ -27,5 +27,7 @@ class ConsoleServiceProvider extends AggregateConsoleProvider
         'WorkbenchUpdate' => 'laradic.workbench.update',
         'WorkbenchList' => 'laradic.workbench.list',
         'WorkbenchCommit' => 'laradic.workbench.commit',
+        'WorkbenchTest' => 'laradic.workbench.test',
+        'WorkbenchDeploy' => 'laradic.workbench.deploy',
     ];
 }

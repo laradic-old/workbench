@@ -13,6 +13,8 @@ use Laradic\Support\Filesystem;
 use Laradic\Support\Path;
 use Laradic\Support\String;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\VarDumper\VarDumper;
+use vierbergenlars\SemVer\version;
 
 /**
  * This is the Factory class.
@@ -80,12 +82,28 @@ class Factory
         $finder   = new Finder;
         $packages = [ ];
         $dirs     = $finder->in($this->workbenchPath)->directories()->depth('== 1')->followLinks();
-
+        $cwd = getcwd();
         foreach ( $dirs as $dir )
         {
             /** @var \SplFileInfo $dir */
             $slug              = String::remove($dir->getPathname(), $this->workbenchPath . '/');
-            $packages[ $slug ] = $dir->getPathname();
+            chdir($dir->getPathname());
+
+            exec('git describe --abbrev=0 --tags 2>&1', $lastTag, $return);
+
+            $version = '';
+            if($return === 0)
+            {
+                $version = with(new version(head($lastTag)))->valid();
+            }
+            unset($lastTag);
+
+            $packages[ $slug ] = [
+                'slug' => $slug,
+                'path' => $dir->getPathname(),
+                'version' => $version
+            ];
+            chdir($cwd);
         }
 
         return $packages;
@@ -168,11 +186,14 @@ class Factory
 
         if ( $file === 'dev' and $this->files->exists($dev) )
         {
+            $this->files->delete($backup);
             $this->files->copy($current, $backup);
+            $this->files->delete($current);
             $this->files->copy($dev, $current);
         }
         elseif ( $file === 'dist' and $this->files->exists($backup) )
         {
+            $this->files->delete($current);
             $this->files->copy($backup, $current);
             $this->files->delete($backup);
         }
@@ -185,7 +206,7 @@ class Factory
 
     public function useComposerDistFile($slug)
     {
-        $this->useComposerFile($slug, 'dists');
+        $this->useComposerFile($slug, 'dist');
     }
 
     /**

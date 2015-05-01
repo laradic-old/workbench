@@ -1,0 +1,29 @@
+{
+    "name": "laradic/workbench",
+    "description": "A workbench tool for laravel",
+    "homepage": "https://github.com/laradic/workbench",
+    "keywords": [
+        "laravel",
+        "generator"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin Radic",
+            "email": "robin@radic.nl",
+            "role": "Package Author/Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "scripts": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Laradic\\Workbench\\": ""
+        }
+    }
+}

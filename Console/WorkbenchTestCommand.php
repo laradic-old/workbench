@@ -7,7 +7,9 @@
  */
 namespace Laradic\Workbench\Console;
 
-use Laradic\Support\String;
+use Laradic\Console\Traits\SlugPackageTrait;
+use Laradic\Support\Filesystem;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -20,26 +22,22 @@ use Symfony\Component\Finder\Finder;
  * @copyright      2015, Robin Radic
  * @link           https://github.com/robinradic1
  */
-class WorkbenchListCommand extends BaseCommand
+class WorkbenchTestCommand extends BaseCommand
 {
 
-    protected $name = 'workbench:list';
+    use SlugPackageTrait;
 
-    protected $description = 'List all workbench packages';
+    protected $name = 'workbench:test';
+
+    protected $description = 'Test';
 
     /**
      * {@inheritdoc}
      */
     public function fire()
     {
-        $packages = $this->workbench->getPackages();
-
-        $header = ['Slug', 'Version', 'Path'];
-        $rows = [ ];
-        foreach ( $packages as $slug => $info )
-        {
-            $rows[ ] = [ (string)$slug, (string)$info['version'], (string)$info['path'] ];
-        }
-        $this->table($header, $rows);
+        #$fs = new Filesystem();
     }
+
+
 }
