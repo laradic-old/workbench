@@ -35,12 +35,38 @@ class WorkbenchDeployCommand extends BaseCommand
 
     protected $description = 'Deploy a workbench package. Commit it, tag it (version bump) and push it.';
 
+    public function fire()
+    {
+        if(!$slug = $this->argument('slug'))
+        {
+            if(!$this->confirm('You did not provide a slug, do you want to interactively deploy all?', true))
+            {
+                return;
+            }
+            else
+            {
+                foreach($this->workbench->getPackages() as $pkg)
+                {
+                    if($this->confirm('Do you want to deploy ' . $pkg['slug'] . ', currently @ ' . $pkg['version'], true))
+                    {
+                        $this->deployPackage($pkg['slug']);
+                    }
+                }
+            }
+
+        }
+        else
+        {
+            $this->deployPackage($slug);
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
-    public function fire()
+    public function deployPackage($slug)
     {
-        if ( ! $this->validateSlug($slug = $this->argument('slug')) )
+        if ( ! $this->validateSlug($slug) )
         {
             return $this->error('Invalid slug');
         }
@@ -119,7 +145,7 @@ class WorkbenchDeployCommand extends BaseCommand
     public function getArguments()
     {
         return [
-            [ 'slug', InputArgument::REQUIRED, 'The vendor/package slug' ]
+            [ 'slug', InputArgument::OPTIONAL, 'The vendor/package slug' ]
         ];
     }
 
