@@ -28,11 +28,11 @@ class WorkbenchListCommand extends BaseCommand
     {
         $packages = $this->workbench->getPackages();
 
-        $header = ['Slug', 'Version', 'Path'];
+        $header = ['Slug', 'Version', 'Branch'];
         $rows = [ ];
         foreach ( $packages as $slug => $info )
         {
-            $rows[ ] = [ (string)$slug, (string)$info['version'], (string)$info['path'] ];
+            $rows[ ] = [ (string)$slug, (string)$info['version'], (string)$info['branch'] ];
         }
         $this->table($header, $rows);
     }

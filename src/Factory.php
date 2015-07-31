@@ -154,6 +154,7 @@ class Factory
             $slug = (string)Stringy::create($dir->getPathname())->removeLeft($this->workbenchPath . '/');
             chdir($dir->getPathname());
 
+            # version
             exec('git describe --abbrev=0 --tags 2>&1', $lastTag, $return);
 
             $version = '';
@@ -163,10 +164,16 @@ class Factory
             }
             unset($lastTag);
 
+            # branch
+            exec('git symbolic-ref -q HEAD', $ref);
+            $branch = last(explode('/', head($ref)));
+
+
             $packages[ $slug ] = [
                 'slug'    => $slug,
                 'path'    => $dir->getPathname(),
-                'version' => $version
+                'version' => $version,
+                'branch'  => $branch
             ];
             chdir($cwd);
         }
@@ -329,6 +336,7 @@ class Factory
         $branch = last(explode('/', head($ref)));
 
         chdir($cwd);
+
         return $branch;
     }
 
@@ -349,6 +357,7 @@ class Factory
         }
         unset($lastTag);
         chdir($cwd);
+
         return new version($version);
     }
 
