@@ -23,7 +23,15 @@ Since Laravel 5, the workbench package has been dropped. Laradic Workbench is a 
 - Includes git integration and generator features.
 
 ### Getting started
+- Add the `Laradic\Workbench\WorkbenchServiceProvider` to your config.
+- Publish the config file `php artisan vendor:publish --provider="Laradic\Workbench\WorkbenchServiceProvider" --tag="config"`
+- Optionally add the `Workbench` facade.
 
+### Commands
+- `workbench:list`
+- `workbench:bump`
+- `workbench:commit`
+- `workbench:make`
 
 <a name="copyright-license"></a>
 ### Copyright/License [^](#top)
