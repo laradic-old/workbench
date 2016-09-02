@@ -1,0 +1,28 @@
+{
+    "name": "laradic/workbench",
+    "description": "A testing package",
+    "keywords": ["laradic", "testing", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {"name": "Robin Radic", "homepage": "http://robin.radic.nl", "email": "robin@radic.nl", "role": "Developer"}
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laradic\\Workbench\\": "src"
+        }
+    },
+    "require": {
+        "composer/composer": "~1.2",
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "illuminate/container": "~5.2"
+    },
+    "suggest": {
+        "orchestra/testbench": "Testing for Laravel Framework applications (~3.2)"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
