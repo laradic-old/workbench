@@ -12,6 +12,11 @@ class Project
     {
     }
 
+    /**
+     * getVendorPackages method
+     *
+     * @return PackageCollection|VendorPackage[]
+     */
     public function getVendorPackages()
     {
     }

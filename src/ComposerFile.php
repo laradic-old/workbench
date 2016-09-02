@@ -2,11 +2,12 @@
 namespace Laradic\Workbench;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
 use Laradic\Filesystem\Filesystem;
 use Laradic\Support\Arr;
 
-class ComposerFile
+class ComposerFile implements Arrayable, \ArrayAccess
 {
     protected $root = false;
 

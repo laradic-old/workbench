@@ -1,7 +1,7 @@
 <?php
 namespace Laradic\Workbench;
 
-class VendorPackage
+class VendorPackage extends Package
 {
 
 }
