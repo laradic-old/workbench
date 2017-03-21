@@ -1,23 +1,30 @@
-Laradic Support
-===============
+<a name="top"></a>Laradic Workbench
+======================
+
+[![GitHub Version](https://img.shields.io/github/tag/laradic/workbench.svg?style=flat-square&label=version)](http://badge.fury.io/gh/laradic%2Fworkbench)
+[![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat-square)](http://radic.mit-license.org)
+  
+-----------
+  
+### Overview
+
+- [Introduction](#introduction)
+- [Copyright/License](#copyright-license)
+  
+-----------
+  
+<a name="introduction"></a>
+### Introduction [^](#top)
+Since Laravel 5, the workbench package has been dropped. Laradic Workbench is a continuation of it with several modifications and extra features.
+
+### Highlights
+- It utilizes the `wikimedia/composer-merge-plugin` to include your workbench packages `require` and `require-dev` dependencies into the main composer file.
+- Several helper console commands simplifying management of workbench packages. (`deploy`, `list`, etc)
+- Includes git integration and generator features.
+
+### Getting started
 
 
-
-[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
-
-A general support package for the Laravel 5 framework. Laradic Support provides flexible and reusable components of code for commonly used functionality as well as the means to customize the default Laravel 5 folder structure.
-
-The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high level of interoperability between shared PHP code.
-
-Quick Installation
-------------------
-Begin by installing the package through Composer.
-
-```bash
-composer require laradic/support=~1.0
-```
-
-Documentation
--------------
-
-[Go to documentation](docs/index.md)
+<a name="copyright-license"></a>
+### Copyright/License [^](#top)
+Copyright 2015 [Robin Radic Radic](https://github.com/robinradic) - [MIT Licensed](http://radic.mit-license.org)

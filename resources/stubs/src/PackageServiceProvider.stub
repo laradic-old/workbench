@@ -1,0 +1,30 @@
+{!! $open !!}
+/**
+ * Part of  {{ $config['author.name'] }}'s PHP packages.
+ *
+ * {{ $config['license'] }} and copyright information bundled with this package
+ * in the LICENSE file or visit {{ $config['license_link'] }}
+ */
+namespace {{ $namespace }};
+
+use Illuminate\Support\ServiceProvider;
+
+/**
+ * {@inheritdoc}
+ */
+class {{ ucfirst($package) }}ServiceProvider extends ServiceProvider
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function boot()
+    {
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function register()
+    {
+    }
+}

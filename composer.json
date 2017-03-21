@@ -1,28 +1,37 @@
 {
     "name": "laradic/workbench",
-    "description": "A testing package",
-    "keywords": ["laradic", "testing", "laravel"],
+    "description": "A workbench tool for laravel",
+    "homepage": "https://github.com/laradic/workbench",
+    "keywords": [
+        "laravel",
+        "generator",
+        "workbench",
+        "package"
+    ],
     "license": "MIT",
     "authors": [
-        {"name": "Robin Radic", "homepage": "http://robin.radic.nl", "email": "robin@radic.nl", "role": "Developer"}
+        {
+            "name": "Robin Radic",
+            "email": "robin@radic.nl",
+            "role": "Package Author/Developer"
+        }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "~5.1",
+        "danielstjules/stringy": "~1.8",
+        "symfony/finder": "2.7.*",
+        "vierbergenlars/php-semver": "~3.0",
+        "wikimedia/composer-merge-plugin": "^1.2",
+        "composer/composer": "dev-master"
+    },
+    "scripts": {
+    },
     "autoload": {
         "psr-4": {
             "Laradic\\Workbench\\": "src"
-        }
-    },
-    "require": {
-        "composer/composer": "~1.2",
-        "phpunit/phpunit": "~4.0",
-        "mockery/mockery": "~0.9",
-        "illuminate/container": "~5.2"
-    },
-    "suggest": {
-        "orchestra/testbench": "Testing for Laravel Framework applications (~3.2)"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
         }
     }
 }
