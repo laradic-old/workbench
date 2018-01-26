@@ -10,9 +10,18 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Core;
 
-class Package
+use Laradic\Workbench\Core\Traits;
+
+abstract class Component
 {
+    use Traits\Bootable,
+        Traits\Extendable,
+        Traits\WithContainerAccess;
 
+    public function __construct()
+    {
+        $this->bootIfNotBooted();
+    }
 }

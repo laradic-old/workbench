@@ -10,9 +10,11 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Contextual\Composer;
 
-class Package
+use Laradic\Workbench\Core\Contextual;
+
+class ComposerContextual extends Contextual
 {
 
 }

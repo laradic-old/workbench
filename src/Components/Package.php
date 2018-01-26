@@ -10,7 +10,7 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Components;
 
 class Package
 {

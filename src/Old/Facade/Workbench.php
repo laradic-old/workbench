@@ -1,18 +1,23 @@
 <?php
 /**
- * Part of the Robin Radic's PHP packages.
+ * Part of the Laradic PHP Packages.
  *
- * MIT License and copyright information bundled with this package
- * in the LICENSE file or visit http://radic.mit-license.com
+ * Copyright (c) 2018. Robin Radic.
+ *
+ * The license can be found in the package and online at https://laradic.mit-license.org.
+ *
+ * @copyright Copyright 2018 (c) Robin Radic
+ * @license https://laradic.mit-license.org The MIT License
  */
-namespace Laradic\Workbench\Facade;
+
+namespace Laradic\Workbench\Old\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * This is the Workbench.
  *
- * @package        Laradic\Workbench
+ * @package        Laradic\Workbench\Old
  * @version        1.0.0
  * @author         Robin Radic
  * @license        MIT License

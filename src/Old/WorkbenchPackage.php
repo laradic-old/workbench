@@ -10,9 +10,9 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Old;
 
-class Package
+class WorkbenchPackage extends Package
 {
 
 }

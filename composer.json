@@ -1,5 +1,6 @@
 {
     "name": "laradic/workbench",
+    "type": "library",
     "description": "A workbench tool for laravel",
     "homepage": "https://github.com/laradic/workbench",
     "keywords": [
@@ -19,13 +20,16 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "~5.1",
-        "danielstjules/stringy": "~1.8",
-        "symfony/finder": "2.7.*",
+        "php": ">=7.0.0",
+        "laravel/framework": "^5.5",
+        "symfony/finder": "~3.3",
         "vierbergenlars/php-semver": "~3.0",
-        "wikimedia/composer-merge-plugin": "^1.2",
-        "composer/composer": "dev-master"
+        "wikimedia/composer-merge-plugin": "~1.4.1",
+        "laradic/filesystem": "~1.0",
+        "laradic/support": "~1.3.2",
+        "laradic/service-provider": "~1.0",
+        "laradic/idea": "~1.0",
+        "composer/composer": "~1.4"
     },
     "scripts": {
     },

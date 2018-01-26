@@ -10,9 +10,14 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Contextual\Filesystem;
 
-class Package
+
+interface FilesystemContextInterface
 {
+    public function getFiles();
 
+    public function path($path = null, $canonicalize = false);
+
+    public function getPath();
 }

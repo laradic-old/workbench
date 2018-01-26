@@ -10,9 +10,12 @@
  * @license https://laradic.mit-license.org The MIT License
  */
 
-namespace Laradic\Workbench;
+namespace Laradic\Workbench\Contextual\Composer;
 
-class Package
+
+use Laradic\Workbench\Contextual\Filesystem\FilesystemContextInterface;
+
+interface ComposerContextInterface extends FilesystemContextInterface
 {
-
+    public function getComposer();
 }

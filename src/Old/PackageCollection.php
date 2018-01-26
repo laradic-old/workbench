@@ -1,5 +1,16 @@
 <?php
-namespace Laradic\Workbench;
+/**
+ * Part of the Laradic PHP Packages.
+ *
+ * Copyright (c) 2018. Robin Radic.
+ *
+ * The license can be found in the package and online at https://laradic.mit-license.org.
+ *
+ * @copyright Copyright 2018 (c) Robin Radic
+ * @license https://laradic.mit-license.org The MIT License
+ */
+
+namespace Laradic\Workbench\Old;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Laradic\Support\Traits\DotArrayObjectTrait;
@@ -86,7 +97,7 @@ class PackageCollection implements \ArrayAccess, Arrayable
     /**
      * add method
      *
-     * @param \Laradic\Workbench\Package $package
+     * @param \Laradic\Workbench\Old\Package $package
      *
      * @return PackageCollection
      */
@@ -99,7 +110,7 @@ class PackageCollection implements \ArrayAccess, Arrayable
     /**
      * all method
      *
-     * @return \Laradic\Workbench\Package[]
+     * @return \Laradic\Workbench\Old\Package[]
      */
     public function all()
     {
